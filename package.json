@@ -1,0 +1,25 @@
+{
+  "name": "webchat_app",
+  "version": "1.0.0",
+  "description": "A simple webchat app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "webchat-app"
+  },
+  "author": "Mel Liow",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "graphql": "^14.4.2",
+    "graphql-yoga": "^1.18.1",
+    "mongoose": "^5.6.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
