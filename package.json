@@ -2,10 +2,10 @@
     "name": "webchat_app",
     "version": "1.0.0",
     "description": "A simple webchat app",
-    "main": "index.js",
+    "main": "server/index.js",
     "scripts": {
-        "test": "nodemon test.js",
-        "start": "nodemon index.js"
+        "test": "nodemon tests/test.js",
+        "start": "nodemon server/index.js"
     },
     "repository": {
         "type": "git",

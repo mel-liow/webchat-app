@@ -10,6 +10,8 @@ const resolvers = {
 		users: () => User.find(),
 		messages: () => Message.find()
 	},
+
+	//Find messages by user email
 	User: {
 		messages: async ({ email }) => {
 			return Message.find({
@@ -18,6 +20,7 @@ const resolvers = {
 		}
 	},
 
+	//Find sender email of message
 	Message: {
 		users: async ({ senderMail }) => {
 			return User.find({
