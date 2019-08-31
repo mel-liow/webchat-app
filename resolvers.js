@@ -55,8 +55,31 @@ const resolvers = {
 		userTyping: (_, { email, receiverMail }) => {
 			pubsub.publish("userTyping", { userTyping: email, receiverMail });
 			return true;
+		},
+		createMessage: async (_, { message, senderMail, receiverMail, timestamp }) => {
+			const userText = new Message({ message, senderMail, receiverMail, timestamp })
+			await userText.save();
+
+			pubsub.publish("newMessage", {
+				newMessage: userText,
+				receiverMail: receiverMail
+			})
+			return userText
+		},
+		updateMessage: async (_, { message, id }) => {
+			const userText = await Message.findOneAndUpdate(
+				{ _id: id },
+				{ message },
+				{ new: true }
+			)
+			return userText
+		},
+		deleteMessage: async (_, { id }) => {
+			await Message.findOneAndDelete({ _id: id })
 		}
 	},
+
+
 	Subscription: {
 		newMessage: {
 			subscribe: withFilter(
