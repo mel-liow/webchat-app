@@ -13,22 +13,28 @@ import {
 } from './components/UserQuery';
 
 const App = props => {
-  const user =
+
+  const [showSignup, setShowSignup] = useState(
+    (localStorage.getItem('token') && JSON.parse(localStorage.getItem('token')) ? false : true)
+  )
+
+  const [user, setUser] = useState(
     (localStorage.getItem('token') &&
       JSON.parse(localStorage.getItem('token'))) ||
-    {};
+    {});
 
+  console.log('user', user)
   const [receiver, setReceiver] = useState({
     receiverMail: '',
     receiverName: ''
   });
 
   const [leftUser, setLeftUser] = useState('');
-  const [showSignup, setShowSignup] = useState(true)
+
 
   const setSelectedMail = (mail, user) => {
     setReceiver(receiver => {
-      console.log('reveived receiver')
+      console.log('reveived receiver', receiver)
       return { ...receiver, receiverMail: mail, receiverName: user };
     });
   };
@@ -76,7 +82,7 @@ const App = props => {
         if (!data.users.find(x => x.id === createUser.id)) {
           data.users.push(createUser);
         }
-        console.log('USERS', data.users)
+        setUser({ name: name, email: email })
         store.writeQuery({ query: UserQuery, data });
       }
     });
@@ -127,6 +133,7 @@ const App = props => {
         setSelectedMail={setSelectedMail}
         deleteUser={deleteUser}
         showSignup={showSignup}
+        setShowSignup={setShowSignup}
       />
     </React.Fragment>
   );

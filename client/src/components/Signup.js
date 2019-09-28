@@ -35,7 +35,7 @@ const Signup = props => {
         if (name.length && validator.isEmail(email) && !existingUser) {
             setError("");
             props.createUser(email, name);
-            props.setShowSignup(!props.showSignup)
+            props.setShowSignup(false)
             localStorage["token"] = JSON.stringify(token);
         }
     };
@@ -45,13 +45,10 @@ const Signup = props => {
     }
 
     const { name, email } = token;
-    const { showSignup } = props;
-
-    if (!showSignup) return null;
 
     return (
         <React.Fragment>
-            <div className='signup_container container'>
+            <div className='signup container'>
                 Login
                 <TextField
                     required
