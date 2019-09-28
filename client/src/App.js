@@ -33,9 +33,9 @@ const App = props => {
 
 
   const setSelectedMail = (mail, user) => {
-    setReceiver(receiver => {
-      console.log('reveived receiver', receiver)
-      return { ...receiver, receiverMail: mail, receiverName: user };
+    setReceiver(receiverState => {
+      console.log('reveived receiver', mail, user)
+      return { ...receiverState, receiverMail: mail, receiverName: user };
     });
   };
 

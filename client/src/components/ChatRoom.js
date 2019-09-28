@@ -13,7 +13,6 @@ const ChatRoom = props => {
         setSelectedMail,
         receiver,
         userLeft,
-
     } = props;
 
     const deleteUserFunction = useCallback(() => {
@@ -33,7 +32,7 @@ const ChatRoom = props => {
             </Button>
             <Users
                 users={users}
-                selectedMail={setSelectedMail}
+                setSelectedMail={setSelectedMail}
                 email={user.email}
             />
             <ChatBox

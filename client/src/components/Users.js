@@ -2,11 +2,11 @@ import React, { useCallback } from "react";
 import './Users.css'
 
 const Users = props => {
-    const { email, users, selectedMail } = props;
+    const { email, users, setSelectedMail } = props;
 
-    const selectUserFunction = useCallback((mail, user) => {
-        selectedMail(mail, user);
-    }, [selectedMail]);
+    const selectUserFunction = useCallback((email, user) => {
+        setSelectedMail(email, user);
+    }, [setSelectedMail]);
 
     const availableUsers = users.filter(user => {
         return user.email !== email
