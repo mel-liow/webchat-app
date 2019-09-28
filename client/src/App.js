@@ -24,10 +24,11 @@ const App = props => {
   });
 
   const [leftUser, setLeftUser] = useState('');
-
+  const [showSignup, setShowSignup] = useState(true)
 
   const setSelectedMail = (mail, user) => {
     setReceiver(receiver => {
+      console.log('reveived receiver')
       return { ...receiver, receiverMail: mail, receiverName: user };
     });
   };
@@ -107,7 +108,6 @@ const App = props => {
     });
   };
 
-  //destructuring nested props obj 
   const {
     data: { users, error, loading }
   } = props;
@@ -126,6 +126,7 @@ const App = props => {
         leftUser={leftUser}
         setSelectedMail={setSelectedMail}
         deleteUser={deleteUser}
+        showSignup={showSignup}
       />
     </React.Fragment>
   );

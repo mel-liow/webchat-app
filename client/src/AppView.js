@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Signup from './components/Signup';
 import ChatRoom from './components/ChatRoom';
@@ -15,27 +15,30 @@ const AppView = props => {
         leftUser,
         setSelectedMail,
         deleteAllUsers,
-        receiver
+        receiver,
     } = props;
 
+    const [showSignup, setShowSignup] = useState(true)
+
     return (
-        <React.Fragment>
+        <div className='app_view'>
             <Signup
                 users={users}
                 createUser={createUser}
                 deleteAllUsers={deleteAllUsers}
+                showSignup={showSignup}
+                setShowSignup={setShowSignup}
             />
-            <div className="chat-page">
-                <ChatRoom
-                    users={users}
-                    user={user}
-                    receiver={receiver}
-                    leftUser={leftUser}
-                    setSelectedMail={setSelectedMail}
-                    deleteUser={deleteUser}
-                />
-            </div>
-        </React.Fragment>
+            <ChatRoom
+                users={users}
+                user={user}
+                receiver={receiver}
+                leftUser={leftUser}
+                showSignup={showSignup}
+                setSelectedMail={setSelectedMail}
+                deleteUser={deleteUser}
+            />
+        </div>
     );
 
 }
