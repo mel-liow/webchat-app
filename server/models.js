@@ -15,10 +15,10 @@ const User = mongoose.model("User", {
     }
 });
 
-const Message = mongoose.model("Mesage", {
+const Message = mongoose.model("Message", {
     message: String,
-    senderEmail: String,
-    receiverEmail: String,
+    senderMail: String,
+    receiverMail: String,
     timestamp: Number
 });
 
