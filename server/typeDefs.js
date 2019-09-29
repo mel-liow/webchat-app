@@ -26,6 +26,7 @@ const typeDefs = `
         createMessage(senderMail: String!receiverMail: String!message: String!timestamp: Float!): Message!
         updateMessage(id: ID!message: String!): Message!
         deleteMessage(id: String!): Boolean!
+        deleteAllMessages(message: String!): Boolean!
     }
     type Subscription {
         newMessage(receiverMail: String!): Message

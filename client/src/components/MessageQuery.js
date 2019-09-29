@@ -42,6 +42,12 @@ const CreateMessageMutation = gql`
   }
 `;
 
+const DeleteAllMessagesMutation = gql`
+  mutation($message: String!) {
+    deleteAllMessages(message: $message)
+  }
+`
+
 const UserTypingMutation = gql`
   mutation($email: String!, $receiverMail: String!) {
     userTyping(email: $email, receiverMail: $receiverMail)
@@ -70,10 +76,12 @@ const UserTypingSubscription = gql`
   }
 `;
 
+
 export {
-    MessageQuery,
-    CreateMessageMutation,
-    UserTypingMutation,
-    MessageSubscription,
-    UserTypingSubscription
+  MessageQuery,
+  CreateMessageMutation,
+  UserTypingMutation,
+  MessageSubscription,
+  UserTypingSubscription,
+  DeleteAllMessagesMutation
 };

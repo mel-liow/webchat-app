@@ -38,8 +38,7 @@ const ChatRoom = props => {
             <ChatBox
                 name={user.name}
                 email={user.email}
-                receiverMail={receiver.receiverMail}
-                receiverName={receiver.receiverName}
+                receiver={receiver}
                 userLeft={userLeft}
             />
         </div>

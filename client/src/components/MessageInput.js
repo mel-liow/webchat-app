@@ -4,17 +4,24 @@ import TextField from '@material-ui/core/TextField';
 
 const MessageInput = props => {
 
-    const [message, setMessage] = useState('');
-
-    const { email, receiverName, receiverMail, handleChange } = props;
-
 
 
     const handleSubmit = async (e, message, email) => {
         setMessage('');
         e.preventDefault();
-        console.log(message)
+        const { submitMessage } = props
+        if (!message.length || !submitMessage) return null
+        submitMessage(message, email)
     };
+
+    const {
+        email,
+        message,
+        setMessage,
+        receiverName,
+        handleChange,
+        submitMessage
+    } = props;
 
 
     return (

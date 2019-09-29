@@ -3,12 +3,17 @@ import React, { useCallback } from "react";
 const MessageConversation = props => {
 
 
-    const { email, receiverName, receiverMail, handleChange } = props;
+    const { messages, receiverName, receiverMail, handleChange } = props;
 
-
+    // console.log(messages)
+    if (!messages) return null
     return (
         <div className="message">
-            Messages ehre
+            Messages:
+            {messages.map((message) => {
+                return <p key={message.id}>{message.message}</p>
+            })}
+
         </div>
 
     );
