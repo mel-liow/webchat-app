@@ -10,6 +10,7 @@ const MessageConversation = props => {
     return (
         <div className="message">
             Messages:
+            {/* Create Message box  */}
             {messages.map((message) => {
                 return <p key={message.id}>{message.message}</p>
             })}

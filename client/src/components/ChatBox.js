@@ -36,8 +36,25 @@ const ChatBox = props => {
         });
     };
 
+    useEffect(() => {
+        const subscribeToMore = props.message.subscribeToMore;
+        subscribeToMore({
+            document: MessageSubscription,
+            variables: { receiverMail: props.email },
+            updateQuery: (prev, { subscriptionData }) => {
+                if (!subscriptionData.data) return prev;
+                const msg = subscriptionData.data.newMessage;
+                if (!prev.messages.find(x => x.id === msg.id)) {
+                    return { ...prev, messages: [...prev.messages, msg] };
+                }
+                return prev;
+            }
+        });
+    })
+
 
     const handleTyping = async e => {
+        console.log(e.target.value)
         setMessage(e.target.value)
         const { email, receiver: { receiverMail } } = props;
         await props.userTyping({
