@@ -7,7 +7,8 @@ import './Signup.scss'
 
 const Signup = props => {
     const [token, setToken] = useState({ name: "", email: "" });
-    const [error, setError] = useState("");
+    const [errorEmail, setErrorEmail] = useState("");
+    const [errorName, setErrorName] = useState("");
 
     const handleChange = e => {
         setToken({ ...token, [e.target.name]: e.target.value });
@@ -20,29 +21,24 @@ const Signup = props => {
             return user.email === email;
         });
 
-        if (!name.length) {
-            setError("Name is required");
-        }
+        !name.length
+            ? setErrorName("Whoops! A name is required")
+            : setErrorName("")
 
-        if (!validator.isEmail(email)) {
-            setError("Valid email is required");
-        }
+        !validator.isEmail(email)
+            ? setErrorEmail("Whoops! Please enter a valid email")
+            : setErrorEmail("")
 
         if (existingUser) {
-            setError("Email already in use");
+            setErrorEmail("Sorry, this email is already in use")
         }
 
         if (name.length && validator.isEmail(email) && !existingUser) {
-            setError("");
             props.createUser(email, name);
             props.setShowSignup(false)
             localStorage["token"] = JSON.stringify(token);
         }
     };
-
-    const remove = () => {
-        props.deleteAllUsers();
-    }
 
     const { name, email } = token;
 
@@ -51,23 +47,35 @@ const Signup = props => {
             <div className='signup container'>
                 <TextField
                     required
+                    id="standard-basic"
                     label="Name"
                     name="name"
                     value={name}
                     onChange={handleChange}
                 />
+                <div className='error_message'>
+                    {errorName}
+                </div>
+
                 <TextField
                     required
+                    id="standard-basic"
                     type="email"
                     label="Email"
                     name="email"
                     value={email}
                     onChange={handleChange}
                 />
-                <Button onClick={validate}>Enter Chat</Button>
-                {/* <Button variant="contained" onClick={remove}>Clear users</Button> */}
+                <div className='error_message'>
+                    {errorEmail}
+                </div>
+
+                <Button onClick={validate} className='chat'>
+                    Chat
+                </Button>
+
             </div>
-            <div>{error}</div>
+
         </React.Fragment>
     );
 };
