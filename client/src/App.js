@@ -23,7 +23,6 @@ const App = props => {
       JSON.parse(localStorage.getItem('token'))) ||
     {});
 
-  console.log('user', user)
   const [receiver, setReceiver] = useState({
     receiverMail: '',
     receiverName: ''
@@ -96,6 +95,7 @@ const App = props => {
         const data = store.readQuery({ query: UserQuery });
         data.users = data.users.filter(x => x.email !== email);
         store.writeQuery({ query: UserQuery, data });
+        setShowSignup(true);
       }
     });
   };
@@ -132,6 +132,7 @@ const App = props => {
         leftUser={leftUser}
         setSelectedMail={setSelectedMail}
         deleteUser={deleteUser}
+        logout={logout}
         showSignup={showSignup}
         setShowSignup={setShowSignup}
       />
