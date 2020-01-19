@@ -10,7 +10,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 
 import App from './App';
 
-import './index.css';
+import './index.scss';
 
 // Create http link:
 const httpLink = new HttpLink({

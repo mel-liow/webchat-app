@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import validator from "validator";
 
-import './Signup.css'
+import './Signup.scss'
 
 const Signup = props => {
     const [token, setToken] = useState({ name: "", email: "" });
@@ -49,29 +49,23 @@ const Signup = props => {
     return (
         <React.Fragment>
             <div className='signup container'>
-                Login
                 <TextField
                     required
-                    id="outlined-name"
                     label="Name"
                     name="name"
                     value={name}
                     onChange={handleChange}
-                    variant="outlined"
                 />
                 <TextField
                     required
-                    id="outlined-email-input"
                     type="email"
                     label="Email"
                     name="email"
                     value={email}
                     onChange={handleChange}
-                    variant="outlined"
-                    className="text-area"
                 />
-                <Button variant="contained" onClick={validate}>Enter Chat</Button>
-                <Button variant="contained" onClick={remove}>Clear users</Button>
+                <Button onClick={validate}>Enter Chat</Button>
+                {/* <Button variant="contained" onClick={remove}>Clear users</Button> */}
             </div>
             <div>{error}</div>
         </React.Fragment>

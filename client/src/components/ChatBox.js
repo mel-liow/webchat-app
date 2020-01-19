@@ -54,7 +54,6 @@ const ChatBox = props => {
 
 
     const handleTyping = async e => {
-        console.log(e.target.value)
         setMessage(e.target.value)
         const { email, receiver: { receiverMail } } = props;
         await props.userTyping({
