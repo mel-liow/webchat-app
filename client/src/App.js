@@ -132,7 +132,6 @@ const App = props => {
         leftUser={leftUser}
         setSelectedMail={setSelectedMail}
         deleteUser={deleteUser}
-        logout={logout}
         showSignup={showSignup}
         setShowSignup={setShowSignup}
       />

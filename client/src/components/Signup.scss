@@ -1,24 +1,29 @@
-.signup{
+.signup_view {
     display: flex;
-    flex-direction: column;
-    background: #c1adbd;
-    min-height: 250px;
-    min-width: 25%;
-    justify-content: space-evenly;
-
-    .chat {
-        &:hover {
-            font-weight: 800;
-        }
-    }
-
-    .error_message {
-        font-size: 10px;
-        transition: color 1s ease;
-        color: rgb(235, 99, 99);
-        font-weight: 500
-
-    }
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
+    .container {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        background: #c1adbd;
+        width: 25%;
+        height: 250px;
 
+        .chat {
+            &:hover {
+                font-weight: 800;
+            }
+        }
+
+        .error_message {
+            font-size: 10px;
+            transition: color 1s ease;
+            color: rgb(235, 99, 99);
+            font-weight: 500
+
+        }
+    }

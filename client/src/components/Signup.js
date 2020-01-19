@@ -44,36 +44,37 @@ const Signup = props => {
 
     return (
         <React.Fragment>
-            <div className='signup container'>
-                <TextField
-                    required
-                    id="standard-basic"
-                    label="Name"
-                    name="name"
-                    value={name}
-                    onChange={handleChange}
-                />
-                <div className='error_message'>
-                    {errorName}
-                </div>
+            <div className='signup_view'>
+                <div className='container'>
+                    <TextField
+                        required
+                        id="standard-basic"
+                        label="Name"
+                        name="name"
+                        value={name}
+                        onChange={handleChange}
+                    />
+                    <div className='error_message'>
+                        {errorName}
+                    </div>
 
-                <TextField
-                    required
-                    id="standard-basic"
-                    type="email"
-                    label="Email"
-                    name="email"
-                    value={email}
-                    onChange={handleChange}
-                />
-                <div className='error_message'>
-                    {errorEmail}
-                </div>
+                    <TextField
+                        required
+                        id="standard-basic"
+                        type="email"
+                        label="Email"
+                        name="email"
+                        value={email}
+                        onChange={handleChange}
+                    />
+                    <div className='error_message'>
+                        {errorEmail}
+                    </div>
 
-                <Button onClick={validate} className='chat'>
-                    Chat
+                    <Button onClick={validate} className='chat'>
+                        Chat
                 </Button>
-
+                </div>
             </div>
 
         </React.Fragment>
