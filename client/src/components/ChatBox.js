@@ -14,7 +14,7 @@ import {
     MessageSubscription,
     UserTypingSubscription,
     DeleteAllMessagesMutation
-} from './MessageQuery';
+} from '../query/MessageQuery';
 
 import './ChatBox.css'
 

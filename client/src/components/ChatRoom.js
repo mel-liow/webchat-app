@@ -3,7 +3,7 @@ import Users from './Users';
 import ChatBox from './ChatBox';
 import Menu from "./Menu";
 
-import './ChatRoom.css'
+import './ChatRoom.scss'
 
 const ChatRoom = props => {
 
@@ -17,29 +17,30 @@ const ChatRoom = props => {
     } = props;
 
     return (
-        <div>
+        <React.Fragment>
             <Menu
                 user={user}
                 deleteUser={deleteUser}
             />
+            <div className="chatroom_view">
+                <div className="container">
+                    <Users
+                        users={users}
+                        setSelectedMail={setSelectedMail}
+                        email={user.email}
+                    />
+                </div>
 
-            <div className="container">
-                <Users
-                    users={users}
-                    setSelectedMail={setSelectedMail}
-                    email={user.email}
-                />
+                <div className="container">
+                    <ChatBox
+                        name={user.name}
+                        email={user.email}
+                        receiver={receiver}
+                        userLeft={userLeft}
+                    />
+                </div>
             </div>
-
-            <div className="container">
-                <ChatBox
-                    name={user.name}
-                    email={user.email}
-                    receiver={receiver}
-                    userLeft={userLeft}
-                />
-            </div>
-        </div>
+        </React.Fragment>
     )
 }
 

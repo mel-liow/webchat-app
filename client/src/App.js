@@ -10,7 +10,7 @@ import {
   AddUserSubscription,
   DeleteUserSubscription,
   DeleteAllUsersMutation
-} from './components/UserQuery';
+} from './query/UserQuery';
 
 const App = props => {
 

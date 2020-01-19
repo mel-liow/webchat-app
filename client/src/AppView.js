@@ -3,7 +3,7 @@ import React from 'react';
 import Signup from './components/Signup';
 import ChatRoom from './components/ChatRoom';
 
-import './AppView.css';
+import './AppView.scss';
 
 const AppView = props => {
 
