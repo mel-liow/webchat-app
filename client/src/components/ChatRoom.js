@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import Users from './Users';
-import ChatBox from './ChatBox';
+import ChatBoxContainer from './chatbox/ChatBoxContainer';
 import Menu from "./Menu";
 
 import './ChatRoom.scss'
@@ -23,7 +23,7 @@ const ChatRoom = props => {
                 deleteUser={deleteUser}
             />
             <div className="chatroom_view">
-                <div className="container">
+                <div className="user_container container">
                     <Users
                         users={users}
                         setSelectedMail={setSelectedMail}
@@ -31,16 +31,22 @@ const ChatRoom = props => {
                     />
                 </div>
 
-                <div className="container">
-                    <ChatBox
-                        name={user.name}
-                        email={user.email}
-                        receiver={receiver}
-                        userLeft={userLeft}
-                    />
-                </div>
+                {users && users.length > 0
+                    ? <div className="chat_container container">
+                        <ChatBoxContainer
+                            name={user.name}
+                            email={user.email}
+                            receiver={receiver}
+                            userLeft={userLeft}
+                        />
+                    </div>
+                    : <div className="chat_container container">
+                        {/* plugin game to wait for someone */}
+                    </div>
+                }
+
             </div>
-        </React.Fragment>
+        </React.Fragment >
     )
 }
 

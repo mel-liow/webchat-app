@@ -1,12 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { graphql } from 'react-apollo';
 import * as compose from 'lodash.flowright'
-import moment from 'moment';
 
-import Button from "@material-ui/core/Button";
-import TextField from '@material-ui/core/TextField';
-import MessageInput from './MessageInput';
-import MessageConversation from './MessageConversation';
 import {
     MessageQuery,
     CreateMessageMutation,
@@ -14,11 +9,12 @@ import {
     MessageSubscription,
     UserTypingSubscription,
     DeleteAllMessagesMutation
-} from '../query/MessageQuery';
+} from '../../query/MessageQuery';
 
 import './ChatBox.css'
+import ChatBoxView from './ChatBoxView';
 
-const ChatBox = props => {
+const ChatBoxContainer = props => {
 
     const [userTyping, setUser] = useState('');
     const [timer, setTimer] = useState(null);
@@ -103,43 +99,28 @@ const ChatBox = props => {
     const {
         message: { error, loading, messages },
         email,
-        receiver: { receiverMail, receiverName },
+        receiver,
     } = props
 
     if (error || loading) {
         return null
     }
 
-    if (!receiverName) return null
+    if (receiver.receiverName === "") return null
 
     return (
-        <div className="chatbox container" >
-            <div className='chat_header'>
-                {userTyping && userTyping === receiverMail
-                    ? <p>{receiverName} is typing </p>
-                    : receiverName
-                }
-            </div>
-            <MessageConversation
-                messages={messages}
-            />
-            <MessageInput
-                handleChange={handleTyping}
-                message={message}
-                setMessage={setMessage}
-                submitMessage={handleSubmitMessage}
-                email={email}
-                receiverName={receiverName}
-            />
-            <Button
-                className="deleteChat"
-                size="small"
-                variant="outlined"
-                onClick={fnDeleteAllMessages}
-            >
-                DELETE MESSAGES
-            </Button>
-        </div>
+
+        <ChatBoxView
+            handleChange={handleTyping}
+            message={message}
+            messages={messages}
+            email={email}
+            receiver={receiver}
+            setMessage={setMessage}
+            submitMessage={handleSubmitMessage}
+            fnDeleteAllMessages={fnDeleteAllMessages}
+            userTyping={userTyping}
+        />
     );
 };
 
@@ -148,4 +129,4 @@ export default compose(
     graphql(CreateMessageMutation, { name: 'createMessage' }),
     graphql(UserTypingMutation, { name: 'userTyping' }),
     graphql(DeleteAllMessagesMutation, { name: 'deleteAllMessages' })
-)(ChatBox)
+)(ChatBoxContainer)
