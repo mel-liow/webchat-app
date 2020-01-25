@@ -111,7 +111,7 @@ const ChatBoxContainer = props => {
     return (
 
         <ChatBoxView
-            handleChange={handleTyping}
+            handleTyping={handleTyping}
             message={message}
             messages={messages}
             email={email}
@@ -120,6 +120,7 @@ const ChatBoxContainer = props => {
             submitMessage={handleSubmitMessage}
             fnDeleteAllMessages={fnDeleteAllMessages}
             userTyping={userTyping}
+            handleSubmitMessage={handleSubmitMessage}
         />
     );
 };

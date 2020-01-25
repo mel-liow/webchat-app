@@ -26,7 +26,6 @@ const MessageInput = props => {
 
     return (
         <div className="message">
-            WRITE MESSAGE HERE
             <form
                 onSubmit={e => handleSubmit(e, message, email)}
                 className="chatbox"
