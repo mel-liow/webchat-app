@@ -1,5 +1,9 @@
 .menu_view{
     display: flex;
     justify-content: space-between;
-    
+
+    .logout_button{
+        color: white;
+        background: #905656
+    }
 }

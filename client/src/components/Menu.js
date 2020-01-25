@@ -19,12 +19,11 @@ const Menu = props => {
             </div>
 
             <Button
-                className="leave"
+                className="logout_button"
                 size="small"
-                variant="outlined"
                 onClick={deleteUserFunction}
             >
-                Leave Chat?
+                Leave Chat
             </Button>
         </div>
     )

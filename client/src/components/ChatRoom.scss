@@ -1,7 +1,23 @@
 .chatroom_view{
     display: flex;
-    padding: 20px;
-    width: 500px;
+    padding: 10px;
     transition: height .5s;
+    justify-content: space-between;
     
+    .user_container {
+        display: flex;
+        background: #c1adbd;
+        width: 30%;
+        margin: 10px;
+        border: solid 2px
+
+    }
+
+    .chat_container {
+        display: flex;
+        background: #e8e8e8;
+        width: 70%;
+        margin: 10px;
+        border: solid 2px
+    }
 }
