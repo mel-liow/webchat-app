@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import MessageInput from '../MessageInput';
 import MessageConversation from '../MessageConversation';
 
-import './ChatBox.css'
+import './ChatBoxView.scss'
 
 const ChatBoxView = props => {
 
@@ -21,7 +21,7 @@ const ChatBoxView = props => {
     } = props
 
     return (
-        <div className="chatbox container" >
+        <div className="chatbox" >
             <div className='chat_header'>
                 {userTyping && userTyping === receiverMail
                     ? <p>{receiverName} is typing </p>

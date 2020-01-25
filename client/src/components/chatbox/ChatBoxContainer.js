@@ -11,7 +11,6 @@ import {
     DeleteAllMessagesMutation
 } from '../../query/MessageQuery';
 
-import './ChatBox.css'
 import ChatBoxView from './ChatBoxView';
 
 const ChatBoxContainer = props => {
