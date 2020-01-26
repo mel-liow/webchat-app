@@ -19,6 +19,7 @@ const ConversationHistory = props => {
             {availableUsers.map(user => {
                 return (
                     <Conversations
+                        key={user.id}
                         user={user}
                         setSelectedMail={setSelectedMail}
                     />
