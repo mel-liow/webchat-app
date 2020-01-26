@@ -1,6 +1,7 @@
 .app_view {
   background-color: #282c34;
   font-size: calc(10px + 2vmin);
+  font-family: Tahoma, Verdana, Geneva, sans-serif;
   color: white;
   min-height: 100vh;
   padding: 20px;
@@ -12,9 +13,13 @@
   border-radius: 10px;
   border-style: solid;
   padding: 20px;
+  font-size: calc(10px + 1vmin)
 }
 
-
+.panel {
+  padding:20px;
+  font-size: calc(10px + 1vmin)
+}
 //colors:
 /**
 font: white

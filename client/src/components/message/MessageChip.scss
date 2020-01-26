@@ -1,0 +1,30 @@
+
+.message_row {
+    display: flex;
+
+
+    .message_chip{
+        padding: 10px;
+        margin: 2px;
+        color: white;
+        background: rgb(123, 143, 165);
+        border-radius: 15px;
+        align-self: center;
+        max-width: 60%;
+
+        .message {
+        }
+    
+    
+    }
+
+
+}
+
+.right {
+    justify-content: flex-end
+}
+
+.left {
+    justify-content: flex-start
+}

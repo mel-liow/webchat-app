@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
 import Button from "@material-ui/core/Button";
-import MessageInput from '../MessageInput';
-import MessageConversation from '../MessageConversation';
+import MessageInput from '../message/MessageInput';
+import MessageConversation from '../message/MessageConversation';
 
 import './ChatBoxView.scss'
 
@@ -30,6 +30,7 @@ const ChatBoxView = props => {
             </div>
             <MessageConversation
                 messages={messages}
+                receiverMail={receiverMail}
             />
             <MessageInput
                 handleChange={handleTyping}
@@ -39,14 +40,14 @@ const ChatBoxView = props => {
                 email={email}
                 receiverName={receiverName}
             />
-            <Button
+            {/* <Button
                 className="deleteChat"
                 size="small"
                 variant="outlined"
                 onClick={fnDeleteAllMessages}
             >
                 DELETE MESSAGES
-            </Button>
+            </Button> */}
         </div>
     );
 };

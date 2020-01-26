@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useRef } from "react";
 import TextField from '@material-ui/core/TextField';
+import Button from "@material-ui/core/Button";
 
+import './MessageInput.scss';
 
 const MessageInput = props => {
 
@@ -25,7 +27,7 @@ const MessageInput = props => {
 
 
     return (
-        <div className="message">
+        <div className="message_input">
             <form
                 onSubmit={e => handleSubmit(e, message, email)}
                 className="chatbox"
@@ -38,8 +40,16 @@ const MessageInput = props => {
                     onChange={handleChange}
                     margin="normal"
                     variant="outlined"
+                    size="small"
                 />
             </form>
+            <Button
+                className="deleteChat"
+                size="small"
+                variant="outlined"
+                onClick={handleSubmit}
+            >
+            </Button>
         </div>
 
     );

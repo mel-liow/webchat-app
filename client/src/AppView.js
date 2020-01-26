@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Signup from './components/Signup';
-import ChatRoom from './components/ChatRoom';
+import Signup from './components/signup/Signup';
+import ChatRoom from './components/chatroom/ChatRoom';
 
 import './AppView.scss';
 
