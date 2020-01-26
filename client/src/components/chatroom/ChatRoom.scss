@@ -1,6 +1,6 @@
 .chatroom_view{
     display: flex;
-    padding: 10px;
+    margin-top: 20px;
     transition: height .5s;
     justify-content: space-between;
     
@@ -8,18 +8,15 @@
         display: flex;
         background: #c1adbd;
         width: 30%;
-        margin: 10px;
+        margin-right: 10px;
         border: solid 2px;
-        justify-content: flex-start;
-
     }
 
     .chat_container {
         display: flex;
         background: #e8e8e8;
         width: 70%;
-        margin: 10px;
+        margin-left: 10px;
         border: solid 2px;
-        justify-content: center
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Users from '../Users';
+import ConversationHistory from '../history/ConversationHistory';
 import ChatBoxContainer from '../chatbox/ChatBoxContainer';
 import Menu from "../menu/Menu";
 
@@ -24,7 +24,7 @@ const ChatRoom = props => {
             />
             <div className="chatroom_view">
                 <div className="user_container panel">
-                    <Users
+                    <ConversationHistory
                         users={users}
                         setSelectedMail={setSelectedMail}
                         email={user.email}

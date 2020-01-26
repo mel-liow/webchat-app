@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Button from "@material-ui/core/Button";
 import MessageInput from '../message/MessageInput';
 import MessageConversation from '../message/MessageConversation';
+import MessageHeader from '../message/MessageHeader';
 
 import './ChatBoxView.scss'
 
@@ -16,18 +16,17 @@ const ChatBoxView = props => {
         setMessage,
         handleTyping,
         userTyping,
-        fnDeleteAllMessages,
         handleSubmitMessage
     } = props
 
     return (
         <div className="chatbox" >
-            <div className='chat_header'>
-                {userTyping && userTyping === receiverMail
-                    ? <p>{receiverName} is typing </p>
-                    : receiverName
-                }
-            </div>
+            <MessageHeader
+                receiverName={receiverName}
+                userTyping={userTyping}
+                receiverMail={receiverMail}
+            />
+
             <MessageConversation
                 messages={messages}
                 receiverMail={receiverMail}
@@ -40,14 +39,6 @@ const ChatBoxView = props => {
                 email={email}
                 receiverName={receiverName}
             />
-            {/* <Button
-                className="deleteChat"
-                size="small"
-                variant="outlined"
-                onClick={fnDeleteAllMessages}
-            >
-                DELETE MESSAGES
-            </Button> */}
         </div>
     );
 };
