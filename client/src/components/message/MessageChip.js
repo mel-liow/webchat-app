@@ -17,9 +17,7 @@ const MessageChip = props => {
         <div className={"message_row " + position}>
             <div className={"message_chip " + position}>
                 <div className="message">
-
                     {message.message}
-
                 </div>
             </div>
         </div >

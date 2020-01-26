@@ -2,7 +2,6 @@
 .message_row {
     display: flex;
 
-
     .message_chip{
         padding: 10px;
         margin: 2px;
@@ -13,12 +12,10 @@
         max-width: 60%;
 
         .message {
+            display: block;
+            word-break: break-all;
         }
-    
-    
     }
-
-
 }
 
 .right {
