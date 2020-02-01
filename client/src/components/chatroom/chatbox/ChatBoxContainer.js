@@ -36,6 +36,7 @@ const ChatBoxContainer = props => {
             document: MessageSubscription,
             variables: { receiverMail: props.email },
             updateQuery: (prev, { subscriptionData }) => {
+                console.log('prev', prev)
                 if (!subscriptionData.data) return prev;
                 const msg = subscriptionData.data.newMessage;
                 if (prev.messages.find(x => x.id === msg.id)) {
@@ -100,6 +101,14 @@ const ChatBoxContainer = props => {
         receiver,
     } = props
 
+    const convoMessages = !messages ? null : messages.filter(message => {
+        return (message.senderMail === props.email &&
+            message.receiverMail === props.receiver.receiverMail ||
+            message.senderMail === props.receiver.receiverMail &&
+            message.receiverMail === props.email
+        )
+    })
+
     if (error || loading) {
         return null
     }
@@ -111,7 +120,7 @@ const ChatBoxContainer = props => {
         <ChatBoxView
             handleTyping={handleTyping}
             message={message}
-            messages={messages}
+            messages={convoMessages}
             email={email}
             receiver={receiver}
             setMessage={setMessage}
