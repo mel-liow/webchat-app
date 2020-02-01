@@ -85,7 +85,6 @@ const resolvers = {
 			await Message.findOneAndDelete({ _id: id })
 		},
 		deleteAllMessages: async (_, { }) => {
-			console.log('REMOVING')
 			await Message.remove({})
 			return true;
 		},

@@ -1,6 +1,6 @@
 import React from 'react';
 import ConversationHistory from '../history/ConversationHistory';
-import ChatBoxContainer from '../chatbox/ChatBoxContainer';
+import ChatBoxContainer from './chatbox/ChatBoxContainer';
 import Menu from "../menu/Menu";
 
 import './ChatRoom.scss'

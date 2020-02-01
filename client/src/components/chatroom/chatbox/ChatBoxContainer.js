@@ -9,7 +9,7 @@ import {
     MessageSubscription,
     UserTypingSubscription,
     DeleteAllMessagesMutation
-} from '../../query/MessageQuery';
+} from '../../../query/MessageQuery';
 
 import ChatBoxView from './ChatBoxView';
 
@@ -32,17 +32,16 @@ const ChatBoxContainer = props => {
     };
 
     useEffect(() => {
-        const subscribeToMore = props.message.subscribeToMore;
-        subscribeToMore({
+        props.message.subscribeToMore({
             document: MessageSubscription,
             variables: { receiverMail: props.email },
             updateQuery: (prev, { subscriptionData }) => {
                 if (!subscriptionData.data) return prev;
                 const msg = subscriptionData.data.newMessage;
-                if (!prev.messages.find(x => x.id === msg.id)) {
-                    return { ...prev, messages: [...prev.messages, msg] };
+                if (prev.messages.find(x => x.id === msg.id)) {
+                    return prev;
                 }
-                return prev;
+                return { ...prev, messages: [...prev.messages, msg] };
             }
         });
     })
@@ -82,7 +81,7 @@ const ChatBoxContainer = props => {
             // updates store 
             update: (store, { data: { createMessage } }) => {
                 const data = store.readQuery({ query: MessageQuery });
-                data.messages.push(createMessage);
+                data.messages = [...data.messages, createMessage];
                 store.writeQuery({ query: MessageQuery, data });
             }
         })
@@ -119,7 +118,6 @@ const ChatBoxContainer = props => {
             submitMessage={handleSubmitMessage}
             fnDeleteAllMessages={fnDeleteAllMessages}
             userTyping={userTyping}
-            handleSubmitMessage={handleSubmitMessage}
         />
     );
 };
@@ -128,5 +126,5 @@ export default compose(
     graphql(MessageQuery, { name: 'message' }),
     graphql(CreateMessageMutation, { name: 'createMessage' }),
     graphql(UserTypingMutation, { name: 'userTyping' }),
-    graphql(DeleteAllMessagesMutation, { name: 'deleteAllMessages' })
+    graphql(DeleteAllMessagesMutation, { name: 'deleteAllMessages' }),
 )(ChatBoxContainer)

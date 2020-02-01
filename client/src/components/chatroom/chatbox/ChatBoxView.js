@@ -16,7 +16,7 @@ const ChatBoxView = props => {
         setMessage,
         handleTyping,
         userTyping,
-        handleSubmitMessage
+        submitMessage
     } = props
 
     return (
@@ -35,7 +35,7 @@ const ChatBoxView = props => {
                 handleChange={handleTyping}
                 message={message}
                 setMessage={setMessage}
-                submitMessage={handleSubmitMessage}
+                submitMessage={submitMessage}
                 email={email}
                 receiverName={receiverName}
             />

@@ -12,7 +12,7 @@ const MessageInput = props => {
         setMessage('');
         e.preventDefault();
         const { submitMessage } = props
-        if (!message.length || !submitMessage) return null
+        if (!message || !submitMessage) return null
         submitMessage(message, email)
     };
 
